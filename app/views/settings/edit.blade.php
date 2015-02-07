@@ -1,0 +1,1 @@
+F:\xampp\htdocs\prayerlogger\app/views/settings/edit.blade.php
