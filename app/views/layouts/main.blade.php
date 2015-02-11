@@ -87,12 +87,11 @@
 <!--change div -->
 
 
-
-
-<footer id="footer" class="midnight-blue">
+<section></section>
+<footer id="footer" class="midnight-blue navbar-fixed-bottom" style='height:75px' >
 <div class="container">
 
-<div class="col-sm-12">
+<div class="col-lg-12">
 <ul class="pull-right">
 <li><a href="homes">Home</a></li>
 <li><a href="prayerlogs">Prayer Book</a></li>
@@ -101,17 +100,17 @@
 <li><a href="qiblahdirections">Qiblah Direction</a></li>
 <li><a href="settings">Settings</a></li>
 </ul>
-</div>
-</div>
 
-<div class="container">
-<div class="row">
-<div class="col-sm-6">
+
+<div class="col-lg-5">
 &copy; 2015 Prayer Logger.All Rights Reserved.
 </div>
+
 </div>
-</div>
-</div>
+
+
+
+
 
 </footer>
 

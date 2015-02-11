@@ -2,24 +2,43 @@
 
 <script type="text/javascript">
 	
-	$('#next').click(function(){
+	
+  $('#next').click(function(){
+
+        if(typeof(Storage) !== "undefined") {
+        if (sessionStorage.clickcount) {
+            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+        } else {
+            sessionStorage.clickcount = 1;
+          }
+        }
+        
+        
 				
-         var data = {};
+        $('#div').after('<div id="div1" class="item">  </div>');
+        /*g=document.createElement('div');
+        g.setAttribute("id", "Div1" , "class" , "item");
+        $('#div').after('g');*/
+
+         var data = {count: sessionStorage.clickcount};
+         alert(sessionStorage.clickcount);
                 var url = "prayers/show";
-               ajaxHandler(url, data);
+               ajaxHandle(url, data);
                
 	});
 
-	function ajaxHandler(url, data) {
-		
-            $.ajax({
-	        type: "get",
-	        url: url,
-	        // data: {"deletefile": filename},
-	        success: function(data) {
-	        	$('#div1').html(data)
-	        }
-	    });
+    function ajaxHandle(url, data) {
+                jQuery.ajax({
+                    type: 'get',
+                    url: url,
+                    data: data,
+                    success: function(data) {
+                    $('#div1').html(data)
+                    }
+                   
+                });
+                
+
             }
 
 
@@ -38,25 +57,31 @@
         function showPosition(position) {
         lati = position.coords.latitude;
         longi = position.coords.longitude;
-       	
-       	var data = {latitude: lati, longitude: longi, name:'yasir' };
 
-       	var url = "prayers/index";
-       
-       	ajaxHandle(url, data);
+        var d = new Date();
+        var timezone = d.getTimezoneOffset()/-60;
        	
-        
+       	var data = {latitude: lati, longitude: longi, tzone:timezone, count: 0 };
+
+       	
+        var url = "prayers/show";
+        ajaxHandle(url, data);
+       	
+
 
    		}
 
    		function ajaxHandle(url, data) {
-        alert(data['latitude']);
                 jQuery.ajax({
-                    type: 'GET',
+                    type: 'get',
                     url: url,
                     data: data,
+                    success: function(data) {
+                    $('#div').html(data)
+                    }
                    
                 });
+
 
             }
    		
@@ -65,7 +90,7 @@
     	
 	});
 
- 
+
 
 
 </script>
