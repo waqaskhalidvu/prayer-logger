@@ -1,1 +1,0 @@
-F:\xampp\htdocs\prayerlogger\app/views/qiblahdirections/create.blade.php
