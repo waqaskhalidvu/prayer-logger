@@ -30,12 +30,14 @@
 @section('content')
 
 @include('prayerlogs.includes.countries')
+@include('prayerlogs.selectmosque')
+@include('prayerlogs.userLocation')
 
 
 		
 
 		{{ Form::model($prayerlog, ['route' => ['prayerlogs.update', $prayerlog->id], 'method' => 'put'])}}
-	
+		<div id='edit-page'>
 			<div class="row" style="margin-left:15%; margin-top:0%; border: 3px solid; border-radius: 10px; width:70%; border-color:#F3FAB6 ; background: #DFE2DB; height:100%">
 			<div class="col-lg-10" style="margin-left:8%;">
 				
@@ -198,7 +200,8 @@
 						
 					</div>
 				</div>
-
+			</div>
+			
 
 
 
@@ -317,17 +320,14 @@
 
 
 			<script type="text/javascript">
-
-     
-
-            $("#google").click(function(){
-                 window.location = "/selectmosque";
-            });       
-
-
- 
-
-
+			$('#google').click(function(){
+				$('#map-canvas').show();
+				$('#pac-input').show();
+				var center = map.getCenter();
+   				google.maps.event.trigger(map, "resize");
+   				 $('#edit-page').hide();
+			});
+      
 		</script>
 
 

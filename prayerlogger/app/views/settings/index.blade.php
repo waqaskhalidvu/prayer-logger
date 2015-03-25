@@ -1,16 +1,5 @@
 @extends('layouts.main')
 
-@section('csslinks')
-	<!-- bootstrap -->
-		
-		{{HTML::style('assets/css/libs/font-awesome.css')}}
-		{{HTML::style('assets/css/compiled/theme_styles.css')}}
-		{{HTML::style('assets/css/libs/datepicker.css')}}
-		{{HTML::style('assets/css/libs/bootstrap-timepicker.css')}}
-		
-
-
-@stop
 
 @section('tablinks')
 
@@ -23,41 +12,3 @@
 
 @stop
 
-@section('content')
-
-		{{ Form::open(['route' => ['settings.create'], 'method' => 'put'])}}
-	
-			<div class="row" style="margin-left:15%; margin-top:0%; border: 3px solid; border-radius: 10px; width:70%; border-color:#F3FAB6 ; background: #DFE2DB; height:100%">
-				<div class="col-lg-10" style="margin-left:8%;">
-					<header class="main-box-header clearfix">
-						<h2>Enter Prayer Information</h2>
-					</header>
-
-			<!...........................for dropdown list............................>	
-					<div class="row">
-						<div class="form-group">
-							<label>Prayer offer at</label>
-							<select name="offer_at" id="offered_at" class="form-control" onChange= "offered_place()">
-								<option>Home</option>
-								<option>Mosque</option>
-							</select>
-						</div>	
-					</div>
-				
-			<!...........................for button............................>
-						
-					<div class="form-group">
-						<div class="col-lg-offset-6 col-lg-12">
-							<table>
-								<tr>
-									<td> <button type="submit" class="btn btn-success col-lg-12">OK</button> </td>
-								</tr>
-							</table>
-						</div>
-					</div>
-
-				</div>
-			</div>	
-
-
-@stop

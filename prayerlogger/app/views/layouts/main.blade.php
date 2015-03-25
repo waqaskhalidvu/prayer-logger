@@ -88,7 +88,7 @@
 
 <!--change div -->
 
-<section></section>
+
 
 <footer id="footer" class="midnight-blue" style='height:75px' >
 <div class="container">
@@ -115,13 +115,14 @@
 
 
 </footer>
-{{ HTML::script('js/jsapi.js') }}
+
 {{ HTML::script('js/jquery.js') }}
 {{ HTML::script('js/bootstrap.min.js') }}
 {{ HTML::script('js/jquery.prettyPhoto.js') }}
 {{ HTML::script('js/jquery.isotope.min.js') }}
 {{ HTML::script('js/main.js') }}
 {{ HTML::script('js/wow.min.js') }}
+
 
 
 

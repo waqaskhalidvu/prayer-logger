@@ -11,11 +11,13 @@ class HomesController extends \BaseController {
 	{
 		$id = Auth::user('id');
 		$current_user_id = $id->id;
+		$user_name = DB::table('users')->where('id', '=', $current_user_id)->pluck('fname');
+		
 
 		$total__fajr_days = DB::table('prayerlogs')->where('user_id', '=', $current_user_id)
 		->where('prayer_name', 'Fajr')
 		->count();
-
+		 $total__fajr_days;
 		$total__zuhar_days = DB::table('prayerlogs')->where('user_id', '=', $current_user_id)
 		->where('prayer_name', 'Zuhar')
 		->count();
@@ -34,15 +36,15 @@ class HomesController extends \BaseController {
 
 
 
-
-		// $creation_timestamp = User::where('id', '=', $current_user_id)->pluck('created_at');
-		// $user_creation_date_string = date_format($creation_timestamp,"Y-m-d");
-		// $user_creation_date_in_days= strtotime($user_creation_date_string);
-		// //$user_creation_date = date('Y-m-d',$user_creation_date_in_days);
-		// $current_date = date('Y-m-d');
-		// $current_date_in_days = strtotime($current_date);
-		// $difference_in_days = $current_date_in_days - $user_creation_date_in_days;
-		// $total_days = $difference_in_days / ( 24 * 60 * 60 );
+		/* $creation_timestamp = User::where('id', '=', $current_user_id)->pluck('created_at');
+		 $user_creation_date_string = date_format($creation_timestamp,"Y-m-d");
+		 $user_creation_date_in_days= strtotime($user_creation_date_string);
+		 $user_creation_date = date('Y-m-d',$user_creation_date_in_days);
+		 $current_date = date('Y-m-d');
+		 $current_date_in_days = strtotime($current_date);
+		 $difference_in_days = $current_date_in_days - $user_creation_date_in_days;
+		$total_days = $difference_in_days / ( 24 * 60 * 60 );
+		dd($total_days);*/
 		
 		//---------------------------------For Fajar prayer--------------------------------------------
 
@@ -317,11 +319,14 @@ class HomesController extends \BaseController {
 			$logged_regular_ishaa,
 			$logged_qaza_ishaa,
 			$logged_qasar_ishaa,
+			
 			$total__fajr_days,
 			$total__zuhar_days,
 			$total__asar_days,
 			$total__maghrib_days,
-			$total__ishaa_days
+			$total__ishaa_days,
+			$user_name
+
 			);
 		
 		return View::make('homes.index', compact('data'));
