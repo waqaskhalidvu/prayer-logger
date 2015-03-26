@@ -141,20 +141,18 @@
 								<select name="country" disabled id="country" name ="country" class="form-control">
 								</select>
 								<script language="javascript">
-								populateCountries("country", "state");
+								populateCountries("country");
  								</script>
 							</div>	
 						</div>
 
-					<!...........................for dropdown............................>
+					<!...........................for field............................>
 					
-						<div class="row">
-							<div class="form-group">
-								<label>State</label>
-								<select disabled name="state" id="state" name ="state" class="form-control">
-								</select>
-								
-							</div>	
+						<div class="row" >
+							<div class="form-group" >
+								<label for="exampleTooltip">State</label>
+								<input name="state" disabled type="text" class="form-control" id="state" data-toggle="tooltip" data-placement="bottom" title="please input a valid city name">
+							</div>
 						</div>
 
 
@@ -295,6 +293,7 @@
 }
 		<!---------------------Offered_at function implementation----------------------->
 		function offered_place(){
+
 	var x = document.getElementById("offered_at");
 	var selected_element = x.options[x.selectedIndex].text;
 	if(selected_element=="Home"){
@@ -308,8 +307,14 @@
 	else {
 		document.getElementById("mosque_name").disabled=false;
 		document.getElementById("country").disabled=false;
+
+		document.getElementById("country").value=country;
+		
 		document.getElementById("state").disabled=false;
+		document.getElementById("state").value=state;
 		document.getElementById("city").disabled=false;
+		document.getElementById("city").value=city;
+
 		document.getElementById("street").disabled=false;
 		document.getElementById("google").disabled=false;
 	}
