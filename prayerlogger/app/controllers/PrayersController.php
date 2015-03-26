@@ -9,8 +9,7 @@ class PrayersController extends \BaseController {
 	 */
 	public function index()
 	{
-		//$calculation_method =  Auth::user()->calculation_method;
-		//$juristic_method =  Auth::user()->juristic_method;
+		
 		return View::make('prayers.index');
 
 		//$prayers = Prayer::all();

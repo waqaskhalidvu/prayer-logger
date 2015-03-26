@@ -10,13 +10,10 @@ class SettingsController extends \BaseController {
 	public function index()
 	{
 		
-	
-		$calculation_method = Auth::user()->calculation_method;
-		$juristic_method = Auth::user()->juristic_method;
+		return View::make('settings.index');
+		//$settings = Setting::all();
 
-		
-
-		return View::make('settings.index', compact('calculation_method', 'juristic_method'));
+		//return View::make('settings.index', compact('settings'));
 	}
 
 	/**
@@ -26,8 +23,7 @@ class SettingsController extends \BaseController {
 	 */
 	public function create()
 	{
-		return $user_calc_method = Input::get('calculation-method');
-		//return View::make('settings.create');
+		return View::make('settings.create');
 	}
 
 	/**
@@ -37,11 +33,15 @@ class SettingsController extends \BaseController {
 	 */
 	public function store()
 	{
-		$data = Input::all();
-		$user = Auth::user();
-		$user->calculation_method = $data['calculation_method'];
-		$user->juristic_method = $data['juristic_method'];
-		$user->save();
+		$validator = Validator::make($data = Input::all(), Setting::$rules);
+
+		if ($validator->fails())
+		{
+			return Redirect::back()->withErrors($validator)->withInput();
+		}
+
+		Setting::create($data);
+
 		return Redirect::route('settings.index');
 	}
 
@@ -79,8 +79,7 @@ class SettingsController extends \BaseController {
 	 */
 	public function update($id)
 	{
-
-		/*$setting = Setting::findOrFail($id);
+		$setting = Setting::findOrFail($id);
 
 		$validator = Validator::make($data = Input::all(), Setting::$rules);
 
@@ -91,7 +90,7 @@ class SettingsController extends \BaseController {
 
 		$setting->update($data);
 
-		return Redirect::route('settings.index');*/
+		return Redirect::route('settings.index');
 	}
 
 	/**
