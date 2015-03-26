@@ -27,7 +27,7 @@
 <br>
 		{{ Form::open(['route' => ['settings.store'], 'method' => 'POST'])}}
 	
-			<div class="row" style="margin-left:15%; margin-top:0%; border: 3px solid; border-radius: 10px; width:65%; border-color:#F3FAB6 ; background: #DFE2DB; height:100%">
+			<div class="row" style="margin-left:15%; margin-top:0%; border: 3px solid; border-radius: 10px; width:70%; border-color:#F3FAB6 ; background: #DFE2DB; height:100%">
 				<div class="col-lg-10" style="margin-left:8%;">
 					<header class="main-box-header clearfix">
 						<h2>Enter Prayer Information</h2>
@@ -79,7 +79,6 @@
 			
 				<br>
 			
-<section>
-</section>
+
 
 @stop
