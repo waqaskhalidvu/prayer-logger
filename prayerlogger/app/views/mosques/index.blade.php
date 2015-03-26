@@ -126,7 +126,9 @@
 
 @section('content')
     <div id="yasir">
-    
+    {{ Form::select('status', ['0' => 'Show Mosque Path', 
+              '1' => 'Log Prayer in Mosque', 
+              ], 0,['class' => 'form-control', 'id' => 'option']) }}
     </div>
     <div id="inputfield"> </div>
     
@@ -310,11 +312,17 @@ function createMarker(place) {
     }); 
   
   google.maps.event.addListener(marker, 'click', function() {
+    var value = document.getElementById("option").value
+    if(value == 0){
     var name =infowindow.setContent(place.name);
     infowindow.open(map, this);
     
     calcRoute(this.position);
     document.getElementById("demo").innerHTML =  place.name;
+    }
+    else{
+      alert();
+    }
 });
 
 }
