@@ -60,6 +60,11 @@
     <script>
 var map;
 var infowindow;
+var street_number = "";
+                var city = "";
+                var sublocality  = "";
+                var state = "";
+                var country = "";
 
 
 function initialize(lati, longi, i) {
@@ -75,6 +80,7 @@ function initialize(lati, longi, i) {
  // if (longi === undefined) longi = position.coords.longitude;
     
 		function showPosition(position) {
+
 		/*------------------show location------------------------*/
 
         // if(){
@@ -94,6 +100,35 @@ function initialize(lati, longi, i) {
             lati = lati;
             longi = longi; 
         }
+
+        geocoder = new google.maps.Geocoder();
+            var latlng = new google.maps.LatLng(lati,longi);
+                    geocoder.geocode({'latLng': latlng}, function(results, status) {
+            if (status == google.maps.GeocoderStatus.OK) {
+                //Check result 0
+                var result = results[0];
+                //look for locality tag and administrative_area_level_1
+                
+                
+                
+                for(var i=0, len=result.address_components.length; i<len; i++) {
+                    var ac = result.address_components[i];
+                    if(ac.types.indexOf("street_number") >= 0) street_number = ac.long_name;
+                    if(ac.types.indexOf("locality") >= 0) city = ac.long_name;
+                    if(ac.types.indexOf("sublocality") >= 0) sublocality = ac.long_name;
+                    if(ac.types.indexOf("administrative_area_level_1") >= 0) state = ac.long_name;
+                    if(ac.types.indexOf("political") >= 0) political  = ac.long_name;
+                    if(ac.types.indexOf("country") >= 0) country  = ac.long_name;
+                    
+                    
+                }
+
+               /* //only report if we got Good Stuff
+                if(city != '' && state != '') {
+                    $("#result").html(street_number+", " +city+", "+sublocality + "," + state + "," +country);
+                }*/
+            } 
+        });
 
        
 var markers = [];
@@ -191,6 +226,10 @@ google.maps.event.addListener(marker, 'click', function($id) {
     infowindow.open(map, this);
     var x = place.name;
     document.getElementById('mosque_name').value = x;
+    document.getElementById('country').value = country;
+    
+     document.getElementById('state').value = state;
+     document.getElementById('city').value = city;  
     document.getElementById('map-canvas').style.display='none';
     document.getElementById('edit-page').style.display='inline';
 
@@ -213,7 +252,7 @@ google.maps.event.addDomListener(window, 'load', initialize);
   <body>
    <input hidden id="pac-input" class="controls" type="text" placeholder="Search Box">
     <div  hidden id="map-canvas" name='map-canvas' ></div>
-   
+   <div id="result"></div>
 
   </body>
 </html>

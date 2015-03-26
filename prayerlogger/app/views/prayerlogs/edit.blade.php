@@ -34,8 +34,6 @@
 @include('prayerlogs.userLocation')
 
 
-		
-
 		{{ Form::model($prayerlog, ['route' => ['prayerlogs.update', $prayerlog->id], 'method' => 'put'])}}
 		<div id='edit-page'>
 			<div class="row" style="margin-left:15%; margin-top:0%; border: 3px solid; border-radius: 10px; width:70%; border-color:#F3FAB6 ; background: #DFE2DB; height:100%">
@@ -142,6 +140,9 @@
 								<label>Country</label>
 								<select name="country" disabled id="country" name ="country" class="form-control">
 								</select>
+								<script language="javascript">
+								populateCountries("country", "state");
+ 								</script>
 							</div>	
 						</div>
 
@@ -152,9 +153,7 @@
 								<label>State</label>
 								<select disabled name="state" id="state" name ="state" class="form-control">
 								</select>
-								<script language="javascript">
-								populateCountries("country", "state");
- 								</script>
+								
 							</div>	
 						</div>
 

@@ -87,7 +87,8 @@
 <script>
 			$(function () { 
 				<!-------counting prayers------------->
-	var total__fajr_days = Number(document.getElementById("25").value);
+	 var total__fajr_days = Number(document.getElementById("25").value);
+	// alert(total__fajr_days);
 	
 	var total__zuhar_days = Number(document.getElementById("26").value);
 	var total__asar_days = Number(document.getElementById("27").value);
@@ -106,7 +107,8 @@
 	var logged_regular_fajr = (Number(document.getElementById("2").value)/total__fajr_days)*100;
 	var logged_regular_fajr = logged_regular_fajr.toFixed(2);
 	var logged_regular_fajr = Number(logged_regular_fajr);
-
+  	
+  	
 	var logged_qaza_fajr = (Number(document.getElementById("3").value)/total__fajr_days)*100;
 	var logged_qaza_fajr = logged_qaza_fajr.toFixed(2);
 	var logged_qaza_fajr = Number(logged_qaza_fajr);
@@ -204,6 +206,7 @@
 
 				
     $('#chart-div').highcharts({
+
         title: {
             text: 'Prayers statistics in percentage'
         },
@@ -239,7 +242,7 @@
             name: 'Unlogged',
             data: [unlogged_fajr,unlogged_zuhar,unlogged_asar,unlogged_maghrib,unlogged_ishaa],
 			
-        },{
+        }/*,{
             type: 'spline',
             name: 'Average',
             data: [3, 2.67, 3, 6.33, 3.33],
@@ -249,14 +252,57 @@
                 fillColor: 'white'
             
         }
-        }]
+        }*/]
     });
 });
 		</script>
 
 		<script>
+
+		var total_unlogged_fajr = Number(document.getElementById("0").value);
+		var total_unlogged_zuhar = Number(document.getElementById("5").value);
+		var total_unlogged_asar = Number(document.getElementById("10").value);
+		var total_unlogged_maghrib = Number(document.getElementById("15").value);
+		var total_unlogged_ishaa = Number(document.getElementById("20").value);
+
+		var total_unlogged_prayers = total_unlogged_fajr+total_unlogged_zuhar+total_unlogged_asar+total_unlogged_maghrib+total_unlogged_ishaa;
+
+		var total_unoffered_fajr = Number(document.getElementById("1").value);
+		var total_unoffered_zuhar = Number(document.getElementById("6").value);
+		var total_unoffered_asar = Number(document.getElementById("11").value);
+		var total_unoffered_maghrib = Number(document.getElementById("16").value);
+		var total_unoffered_ishaa = Number(document.getElementById("21").value);
+
+		var total_unoffered_prayers = total_unoffered_fajr+total_unoffered_zuhar+total_unoffered_asar+total_unoffered_maghrib+total_unoffered_ishaa;
+
+		var total_qasar_fajr = Number(document.getElementById("4").value);
+		var total_qasar_zuhar = Number(document.getElementById("9").value);
+		var total_qasar_asar = Number(document.getElementById("14").value);
+		var total_qasar_maghrib = Number(document.getElementById("19").value);
+		var total_qasar_ishaa = Number(document.getElementById("24").value);
+
+		var total_qasar_prayers =total_qasar_fajr+total_qasar_zuhar+total_qasar_asar+total_qasar_maghrib+total_qasar_ishaa;
+
+
+		var total_qaza_fajr = Number(document.getElementById("3").value);
+		var total_qaza_zuhar = Number(document.getElementById("8").value);
+		var total_qaza_asar = Number(document.getElementById("13").value);
+		var total_qaza_maghrib = Number(document.getElementById("18").value);
+		var total_qaza_ishaa = Number(document.getElementById("23").value);
 		
+		var total_qaza_prayers = total_qaza_fajr+total_qaza_zuhar+total_qaza_asar+total_qaza_maghrib+total_qaza_ishaa;
+
+		var total_regular_fajr = Number(document.getElementById("2").value);
+		var total_regular_zuhar = Number(document.getElementById("7").value);
+		var total_regular_asar = Number(document.getElementById("12").value);
+		var total_regular_maghrib = Number(document.getElementById("17").value);
+		var total_regular_ishaa = Number(document.getElementById("22").value);
+		var total_regular_prayers =total_regular_fajr+total_regular_zuhar+total_regular_asar+total_regular_maghrib+total_regular_ishaa;
+
+		var total_prayers = total_unlogged_prayers+total_unoffered_prayers+total_qasar_prayers+total_qaza_prayers+total_regular_prayers;
 		$('#pie').highcharts({
+
+
 	chart: {
             plotBackgroundColor: null,
             plotBorderWidth: 0,
@@ -274,7 +320,7 @@
                 html: 'Prayers Statistics',
                 style: {
                     left: '10%',
-                    top: '80%',
+                    top: '60%',
                     color: (Highcharts.theme && Highcharts.theme.textColor) || 'black'
                 }
             }]
@@ -282,27 +328,31 @@
         series: [{
 			
             type: 'pie',
-            name: 'Total consumption',
+            name: 'Prayers',
             data: [{
                 name: 'Regular',
-                y: 13,
+                y: total_regular_prayers, 
                 //color: Highcharts.getOptions().colors[0] // Jane's color
             }, {
                 name: 'Missed',
-                y: 23,
+                y: total_unoffered_prayers,
                // color: Highcharts.getOptions().colors[1] // John's color
             },{
                 name: 'Qaza',
-                y: 23,
+                y: total_qaza_prayers,
 //color: Highcharts.getOptions().colors[2] // John's color
             },{
                 name: 'Qasr',
-                y: 23,
+                y: total_qasar_prayers,
                // color: Highcharts.getOptions().colors[3] // John's color
             }, {
                 name: 'Unlogged',
-                y: 19,
+                y: total_unlogged_prayers,
                 //color: Highcharts.getOptions().colors[4] // Joe's color
+            },{
+                name: 'Total',
+                y: total_prayers,
+               // color: Highcharts.getOptions().colors[3] // John's color
             }],
             center: [150, 80],
             size: 100,

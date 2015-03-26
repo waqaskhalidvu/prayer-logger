@@ -42,7 +42,7 @@ class SettingsController extends \BaseController {
 		$user->calculation_method = $data['calculation_method'];
 		$user->juristic_method = $data['juristic_method'];
 		$user->save();
-		return Redirect::route('settings.index');
+		return Redirect::route('settings.index')->withFlashMessage('Your Settings have been Saved, Please go to prayer section');
 	}
 
 	/**

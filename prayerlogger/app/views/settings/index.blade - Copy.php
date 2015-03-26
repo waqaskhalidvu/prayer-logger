@@ -78,7 +78,9 @@
 			{{ Form::close() }}	
 			
 				<br>
-			
+			<script>
+				alert();
+			</script>
 
 
 @stop
