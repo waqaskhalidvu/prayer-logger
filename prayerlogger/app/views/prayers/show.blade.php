@@ -39,10 +39,8 @@ for ($n = 0; $n < 3; $n++) {
       echo '</tr>';
 
     $prayer_names = array("Fajr", "Sunrise", "Zuhar","Asr", "Sunsit", "Maghrib", "Ishaa");
+    
     $prayTime = new PrayTime();
-    $prayTime->setCalcMethod(Auth::user()->calculation_method);
-    $prayTime->setAsrMethod(Auth::user()->juristic_method);
-
     static $latitude;
     static $longitude;
     static $tzone;

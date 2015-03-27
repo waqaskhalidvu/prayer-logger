@@ -43,127 +43,19 @@ google.load("visualization", "1", {packages:["corechart"]});
 google.setOnLoadCallback(drawVisualization);
 
 function drawVisualization() {
-	var total__fajr_days = Number(document.getElementById("25").value);
-	var total__zuhar_days = Number(document.getElementById("26").value);
-	var total__asar_days = Number(document.getElementById("27").value);
-	var total__maghrib_days = Number(document.getElementById("28").value);
-	var total__ishaa_days = Number(document.getElementById("29").value);
-	
-	
-	var unlogged_fajr = (Number(document.getElementById("0").value)/total__fajr_days)*100;
-	var unlogged_fajr = unlogged_fajr.toFixed(2);
-	var unlogged_fajr = Number(unlogged_fajr);
-	
-	var unoffered_fajr = (Number(document.getElementById("1").value)/total__fajr_days)*100;
-	var unoffered_fajr = unoffered_fajr.toFixed(2);
-	var unoffered_fajr = Number(unoffered_fajr);
-
-	var logged_regular_fajr = (Number(document.getElementById("2").value)/total__fajr_days)*100;
-	var logged_regular_fajr = logged_regular_fajr.toFixed(2);
-	var logged_regular_fajr = Number(logged_regular_fajr);
-
-	var logged_qaza_fajr = (Number(document.getElementById("3").value)/total__fajr_days)*100;
-	var logged_qaza_fajr = logged_qaza_fajr.toFixed(2);
-	var logged_qaza_fajr = Number(logged_qaza_fajr);
-
-	var logged_qasar_fajr = (Number(document.getElementById("4").value)/total__fajr_days)*100;
-	var logged_qasar_fajr = logged_qasar_fajr.toFixed(2);
-	var logged_qasar_fajr = Number(logged_qasar_fajr);
-
-	var unlogged_zuhar = (Number(document.getElementById("5").value)/total__zuhar_days)*100;
-	var unlogged_zuhar = unlogged_zuhar.toFixed(2);
-	var unlogged_zuhar = Number(unlogged_zuhar);
-
-	var unoffered_zuhar = (Number(document.getElementById("6").value)/total__zuhar_days)*100;
-	var unoffered_zuhar = unoffered_zuhar.toFixed(2);
-	var unoffered_zuhar = Number(unoffered_zuhar);
-
-	var logged_regular_zuhar = (Number(document.getElementById("7").value)/total__zuhar_days)*100;
-	var logged_regular_zuhar = logged_regular_zuhar.toFixed(2);
-	var logged_regular_zuhar = Number(logged_regular_zuhar);
-
-	var logged_qaza_zuhar = (Number(document.getElementById("8").value)/total__zuhar_days)*100;
-	var logged_qaza_zuhar = logged_qaza_zuhar.toFixed(2);
-	var logged_qaza_zuhar = Number(logged_qaza_zuhar);
-
-	var logged_qasar_zuhar = (Number(document.getElementById("9").value)/total__zuhar_days)*100;
-	var logged_qasar_zuhar = logged_qasar_zuhar.toFixed(2);
-	var logged_qasar_zuhar = Number(logged_qasar_zuhar);
-
-	var unlogged_asar = (Number(document.getElementById("10").value)/total__asar_days)*100;
-	var unlogged_asar = unlogged_asar.toFixed(2);
-	var unlogged_asar = Number(unlogged_asar);
-
-	var unoffered_asar = (Number(document.getElementById("11").value)/total__asar_days)*100;
-	var unoffered_asar = unoffered_asar.toFixed(2);
-	var unoffered_asar = Number(unoffered_asar);
-
-	var logged_regular_asar = (Number(document.getElementById("12").value)/total__asar_days)*100;
-	var logged_regular_asar = logged_regular_asar.toFixed(2);
-	var logged_regular_asar = Number(logged_regular_asar);
-
-	var logged_qaza_asar = (Number(document.getElementById("13").value)/total__asar_days)*100;
-	var logged_qaza_asar = logged_qaza_asar.toFixed(2);
-	var logged_qaza_asar = Number(logged_qaza_asar);
-
-	var logged_qasar_asar = (Number(document.getElementById("14").value)/total__asar_days)*100;
-	var logged_qasar_asar = logged_qasar_asar.toFixed(2);
-	var logged_qasar_asar = Number(logged_qasar_asar);
-
-	var unlogged_maghrib = (Number(document.getElementById("15").value)/total__maghrib_days)*100;
-	var unlogged_maghrib = unlogged_maghrib.toFixed(2);
-	var unlogged_maghrib = Number(unlogged_maghrib);
-
-	var unoffered_maghrib = (Number(document.getElementById("16").value)/total__maghrib_days)*100;
-	var unoffered_maghrib = unoffered_maghrib.toFixed(2);
-	var unoffered_maghrib = Number(unoffered_maghrib);
-
-	var logged_regular_maghrib = (Number(document.getElementById("17").value)/total__maghrib_days)*100;
-	var logged_regular_maghrib = logged_regular_maghrib.toFixed(2);
-	var logged_regular_maghrib = Number(logged_regular_maghrib);
-
-	var logged_qaza_maghrib = (Number(document.getElementById("18").value)/total__maghrib_days)*100;
-	var logged_qaza_maghrib = logged_qaza_maghrib.toFixed(2);
-	var logged_qaza_maghrib = Number(logged_qaza_maghrib);
-
-	var logged_qasar_maghrib = (Number(document.getElementById("19").value)/total__maghrib_days)*100;
-	var logged_qasar_maghrib = logged_qasar_maghrib.toFixed(2);
-	var logged_qasar_maghrib = Number(logged_qasar_maghrib);
-
-	var unlogged_ishaa = (Number(document.getElementById("20").value)/total__ishaa_days)*100;
-	var unlogged_ishaa = unlogged_ishaa.toFixed(2);
-	var unlogged_ishaa = Number(unlogged_ishaa);
-
-	var unoffered_ishaa = (Number(document.getElementById("21").value)/total__ishaa_days)*100;
-	var unoffered_ishaa = unoffered_ishaa.toFixed(2);
-	var unoffered_ishaa = Number(unoffered_ishaa);
-
-	var logged_regular_ishaa = (Number(document.getElementById("22").value)/total__ishaa_days)*100;
-	var logged_regular_ishaa = logged_regular_ishaa.toFixed(2);
-	var logged_regular_ishaa = Number(logged_regular_ishaa);
-
-	var logged_qaza_ishaa = (Number(document.getElementById("23").value)/total__ishaa_days)*100;
-	var logged_qaza_ishaa = logged_qaza_ishaa.toFixed(2);
-	var logged_qaza_ishaa = Number(logged_qaza_ishaa);
-
-	var logged_qasar_ishaa = (Number(document.getElementById("24").value)/total__ishaa_days)*100;
-	var logged_qasar_ishaa = logged_qasar_ishaa.toFixed(2);
-	var logged_qasar_ishaa = Number(logged_qasar_ishaa);
-	
-
   // Some raw data (not necessarily accurate)
   var data = google.visualization.arrayToDataTable([
-    ['','Regular', 'Missed', 'Qaza', 'Qasr', 'Unlogged'],
-    ['Fajr',    logged_regular_fajr, unoffered_fajr, logged_qaza_fajr, logged_qasar_fajr, unlogged_fajr],
-    ['Zuhar',   logged_regular_zuhar, unoffered_zuhar, logged_qaza_zuhar, logged_qasar_zuhar, unlogged_zuhar],
-    ['Asar',    logged_regular_asar, unoffered_asar, logged_qaza_asar, logged_qasar_asar, unlogged_asar],
-    ['Maghrib', logged_regular_maghrib, unoffered_maghrib, logged_qaza_maghrib, logged_qasar_maghrib, unlogged_maghrib],
-    ['Ishaa',   logged_regular_ishaa,   unoffered_ishaa,  logged_qaza_ishaa, logged_qasar_ishaa, unlogged_ishaa]
-    
+    ['','Regular', 'Missed', 'Qaza', 'Qasr'],
+    ['Fajr',    85,   38,  22,    98],
+    ['Zuhar',   35,   20,  99,    68],
+    ['Asar',    15,   11,  58,    87],
+    ['Maghrib', 39,   11,  61,    68],
+    ['Ishaa',   36,   91,  29,    26],
+    ['Jumma',   36,   91,  29,    26]
   ]);
 
   var options = {
-    title : 'Prayer Statistics in percentage',
+    title : 'Current month prayer statistics',
     vAxis: {title: "Percentage"},
     hAxis: {title: "Prayers"},
     seriesType: "bars",

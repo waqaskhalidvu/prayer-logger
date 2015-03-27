@@ -1,4 +1,5 @@
 <?php
+
 //--------------------- Copyright Block ----------------------
 /*
 
@@ -125,7 +126,7 @@ class PrayTime
     var $dhuhrMinutes = 0;        // minutes after mid-day for Dhuhr
     var $adjustHighLats = 1;    // adjusting method for higher latitudes
 
-    var $timeFormat   = 1;        // time format
+    var $timeFormat   = 0;        // time format
 
     var $lat;        // latitude
     var $lng;        // longitude
