@@ -96,7 +96,7 @@
 <li><a href="mosques">Mosque Finding</a></li>
 <li><a href="qiblahdirections">Qiblah Direction</a></li>
 <li><a href="settings">Settings</a></li>
-<li><a href="users">Logout</a></li>
+<li><a href="logout">Logout</a></li>
 </ul>
 
 
