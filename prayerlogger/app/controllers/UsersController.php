@@ -198,7 +198,12 @@ class UsersController extends \BaseController {
 
 	}
 
-
+	public function logout()
+	{
+		Auth::logout();
+		return Redirect::route('users.index');
+		//return View::make('users.index');
+	}
 	
 
 }

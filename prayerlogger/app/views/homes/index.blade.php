@@ -14,6 +14,7 @@
 <li><a href="qiblahdirections">Qiblah Direction</a></li>
 <li><a href="settings">Settings</a></li>
 
+
 @stop
 
 
