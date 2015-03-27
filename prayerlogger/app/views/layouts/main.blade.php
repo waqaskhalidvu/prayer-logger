@@ -101,10 +101,7 @@
 <li><a href="mosques">Mosque Finding</a></li>
 <li><a href="qiblahdirections">Qiblah Direction</a></li>
 <li><a href="settings">Settings</a></li>
-<<<<<<< HEAD
-<li><a href="logout">Logout</a></li>
-=======
->>>>>>> parent of 4077dff... create logout link
+
 </ul>
 
 
