@@ -49,16 +49,17 @@
 
     window.onload=function(){ 
 
-        var x=1000;
+        
 
-        var auto_refresh = setInterval(function() { submitform(); }, x++);
+        var auto_refresh = setInterval(function() { submitform(); }, 1);
 
         //Form submit function
         function submitform()
          {  
             if( validate() )//Calling validate function
             {  
-               document.forms[0].submit();
+                clearInterval(auto_refresh);
+                document.forms[0].submit();
             }
          }
          

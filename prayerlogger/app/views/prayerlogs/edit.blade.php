@@ -1,6 +1,7 @@
 @extends('layouts.main')
 
 
+
 @section('csslinks')
 	<!-- bootstrap -->
 		
@@ -29,9 +30,12 @@
 @section('content')
 
 @include('prayerlogs.includes.countries')
-		
+@include('prayerlogs.selectmosque')
+@include('prayerlogs.userLocation')
+
+
 		{{ Form::model($prayerlog, ['route' => ['prayerlogs.update', $prayerlog->id], 'method' => 'put'])}}
-	
+		<div id='edit-page'>
 			<div class="row" style="margin-left:15%; margin-top:0%; border: 3px solid; border-radius: 10px; width:70%; border-color:#F3FAB6 ; background: #DFE2DB; height:100%">
 			<div class="col-lg-10" style="margin-left:8%;">
 				
@@ -136,20 +140,19 @@
 								<label>Country</label>
 								<select name="country" disabled id="country" name ="country" class="form-control">
 								</select>
+								<script language="javascript">
+								populateCountries("country");
+ 								</script>
 							</div>	
 						</div>
 
-					<!...........................for dropdown............................>
+					<!...........................for field............................>
 					
-						<div class="row">
-							<div class="form-group">
-								<label>State</label>
-								<select disabled name="state" id="state" name ="state" class="form-control">
-								</select>
-								<script language="javascript">
-								populateCountries("country", "state");
- 								</script>
-							</div>	
+						<div class="row" >
+							<div class="form-group" >
+								<label for="exampleTooltip">State</label>
+								<input name="state" disabled type="text" class="form-control" id="state" data-toggle="tooltip" data-placement="bottom" title="please input a valid city name">
+							</div>
 						</div>
 
 
@@ -195,8 +198,7 @@
 					</div>
 				</div>
 			</div>
-		</div>	
-	</div>	
+			
 
 
 
@@ -291,6 +293,7 @@
 }
 		<!---------------------Offered_at function implementation----------------------->
 		function offered_place(){
+
 	var x = document.getElementById("offered_at");
 	var selected_element = x.options[x.selectedIndex].text;
 	if(selected_element=="Home"){
@@ -304,8 +307,14 @@
 	else {
 		document.getElementById("mosque_name").disabled=false;
 		document.getElementById("country").disabled=false;
+
+		document.getElementById("country").value=country;
+		
 		document.getElementById("state").disabled=false;
+		document.getElementById("state").value=state;
 		document.getElementById("city").disabled=false;
+		document.getElementById("city").value=city;
+
 		document.getElementById("street").disabled=false;
 		document.getElementById("google").disabled=false;
 	}
@@ -315,17 +324,14 @@
 
 
 			<script type="text/javascript">
-
-     
-
-            $("#google").click(function(){
-                 window.location = "/selectmosque";
-            });       
-
-
- 
-
-
+			$('#google').click(function(){
+				$('#map-canvas').show();
+				$('#pac-input').show();
+				var center = map.getCenter();
+   				google.maps.event.trigger(map, "resize");
+   				 $('#edit-page').hide();
+			});
+      
 		</script>
 
 
