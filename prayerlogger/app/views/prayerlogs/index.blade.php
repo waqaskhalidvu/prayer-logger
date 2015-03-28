@@ -30,6 +30,10 @@
 
 @stop
 
+@section('logo')
+<a class="navbar-brand" href="homes" style="margin-left:100px">{{ HTML::image('images/logo.png') }}</a>
+@stop
+
 @section('tablinks')
 
 <li><a href="homes">Home</a></li>
@@ -197,7 +201,7 @@
                                         
                                     </ol>
                                     
-                                    <h1>Advanced tables</h1>
+                                    <h1>Prayers Information</h1>
                                 </div>
                             </div>
                             
