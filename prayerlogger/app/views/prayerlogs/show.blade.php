@@ -75,27 +75,47 @@
 		</tr>
 		<tr>
 		  <td><h4><b>Mosque Name</b></h4></td>
-		  <td>{{$mosque->mosque_name}}</</td>
+		  <td>
+		  	@if($prayerlog->mosque_name)
+		  		{{$mosque->mosque_name}}
+		  	@endif
+		  </td>
 		</tr>
 
 		<tr>
 		  <td><h4><b>Country</b></h4></td>
-		  <td>{{$mosque->country}}</</td>
+		  <td>
+		  	@if($prayerlog->country)
+		  		{{$mosque->country}}
+		  	@endif
+		  </td>
 		</tr>
 
 		<tr>
-		  <td><h4><b>State or Province</b></h4></td>
-		  <td>{{$mosque->state}}</td>
+		  <td><h4><b>State</b></h4></td>
+		  <td>
+		  	@if($prayerlog->state)
+		  		{{$mosque->state}}
+		  	@endif
+		  </td>
 		</tr>
 
 		<tr>
 		  <td><h4><b>City</b></h4></td>
-		  <td>{{$mosque->city}}</td>
+		  <td>
+		  	@if($prayerlog->city)
+		  		{{$mosque->city}}
+		  	@endif
+		  </td>
 		</tr>
 
 		<tr>
 		  <td><h4><b>Street</b></h4></td>
-		  <td>{{$mosque->street}}</td>
+		  <td>
+		  	@if($prayerlog->street)
+		  		{{$mosque->street}}
+		  	@endif
+		  </td>
 		</tr>
 
 		<tr>
