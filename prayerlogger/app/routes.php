@@ -40,3 +40,8 @@ Route::get('/selectmosque', function()
     {
         return View::make('prayerlogs.selectmosque');
     });
+
+Route::get('/logout', array(
+		'as' => 'logout',
+		'uses' => 'UsersController@logout'
+	));

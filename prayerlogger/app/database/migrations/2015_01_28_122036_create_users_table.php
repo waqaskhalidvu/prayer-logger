@@ -23,6 +23,7 @@ class CreateUsersTable extends Migration {
 			$table->string('code');
 			$table->string('calculation_method');
 			$table->string('juristic_method');
+			$table->string('remember_token');
 			$table->timestamps();
 		});
 	}

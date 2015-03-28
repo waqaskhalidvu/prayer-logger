@@ -1,5 +1,9 @@
 @extends('layouts.main')
 
+@section('logo')
+<a class="navbar-brand" href="homes" style="margin-left:-20px">{{ HTML::image('images/logo.png') }}</a>
+@stop
+
 @section('csslinks')
     <style>
       html, body, #map-canvas {
