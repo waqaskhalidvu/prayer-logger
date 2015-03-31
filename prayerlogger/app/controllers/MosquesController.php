@@ -8,10 +8,12 @@ class MosquesController extends \BaseController {
 	 * @return Response
 	 */
 	public function index()
-	{	
-		
+	{
 		return View::make('mosques.index');
 
+		//$mosques = Mosque::all();
+
+		//return View::make('mosques.index', compact('mosques'));
 	}
 
 	/**
@@ -37,9 +39,6 @@ class MosquesController extends \BaseController {
 		{
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
-
-		$prayerlogs = Auth::user()->prayerlogs()->orderBy('id', 'desc')->first();
-
 
 		Mosque::create($data);
 

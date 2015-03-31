@@ -210,7 +210,7 @@ class PrayerlogsController extends \BaseController {
 			$offered = $data["offered"];
 			$prayer_type = $data["prayer_type"];
 			if($prayer_type == 'Qaza'){
-				$offered_date =  date('Y-m-d', strtotime(str_replace('-', '/', $data["offered_date"])));
+				$offered_date =  date('Y-m-d', strtotime(str_replace('', '/', $data["offered_date"])));
 			$log = ['offered_date'=> $offered_date];
 			}
 			
@@ -258,7 +258,9 @@ class PrayerlogsController extends \BaseController {
 		}
 
 		
-		return $log;
+		
+		
+
 		$prayerlog->update($log);
 		return Redirect::route('prayerlogs.index');
 	}
