@@ -1,4 +1,4 @@
-<script src="js/jquery_new.js" type="text/javascript"></script>
+<!-- <script src="js/jquery_new.js" type="text/javascript"></script> -->
 
 <script type="text/javascript">
   
@@ -85,7 +85,9 @@
 
         
         var url = "prayers/show";
+
         ajaxHandle(url, data);
+
         
 
 

@@ -145,11 +145,14 @@
 
 
 @section('jslinks')
+
     
     <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true&libraries=places"></script>
-    <script>
-                var directionsDisplay;//
-                var directionsService = new google.maps.DirectionsService();//
+    <script type="text/javascript">
+    alert();
+  
+                var directionsDisplay;
+                var directionsService = new google.maps.DirectionsService();
 var map;
 var infowindow;
 var lati;
@@ -158,6 +161,7 @@ var range;
 
 
 function initialize(lati,longi,i) {
+
       if(!navigator.geolocation) return;
       
       navigator.geolocation.getCurrentPosition(function(pos){
@@ -181,16 +185,17 @@ function initialize(lati,longi,i) {
 
   var pyrmont = new google.maps.LatLng(lati, longi);
   
-            directionsDisplay = new google.maps.DirectionsRenderer(); //
+            directionsDisplay = new google.maps.DirectionsRenderer(); 
             var mapOptions = {
             zoom: 7,
             center: new google.maps.LatLng(lati, longi)
                             };//
+
   var markers = [];
   map = new google.maps.Map(document.getElementById('map-canvas'), {
     center: pyrmont,
     zoom: 15,
-    mapOptions   //
+    mapOptions 
   });
   
             directionsDisplay.setMap(map);   
@@ -274,6 +279,7 @@ function initialize(lati,longi,i) {
   service.nearbySearch(request, callback);
 });
 
+
 function calcRoute(end) {   
   
   
@@ -289,7 +295,8 @@ function calcRoute(end) {
       directionsDisplay.setDirections(response);
     }
   });
-}   //
+}   
+
 
 function callback(results, status) {
   if (status == google.maps.places.PlacesServiceStatus.OK) {
@@ -299,6 +306,7 @@ function callback(results, status) {
     }
   }
 }
+
 
 function createMarker(place) {
   var placeLoc = place.geometry.location;
@@ -331,11 +339,12 @@ function createMarker(place) {
 
 }
 
-}
+
 
 
 
 google.maps.event.addDomListener(window, 'load', initialize);
+
 
 
     </script>

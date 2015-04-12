@@ -9,6 +9,7 @@ class PrayersController extends \BaseController {
 	 */
 	public function index()
 	{
+		
 		//$calculation_method =  Auth::user()->calculation_method;
 		//$juristic_method =  Auth::user()->juristic_method;
 		return View::make('prayers.index');
@@ -17,6 +18,7 @@ class PrayersController extends \BaseController {
 
 		//return View::make('prayers.index', compact('prayers'));
 	}
+
 
 	/**
 	 * Show the form for creating a new prayer

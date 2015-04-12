@@ -126,7 +126,7 @@ class PrayTime
     var $dhuhrMinutes = 0;        // minutes after mid-day for Dhuhr
     var $adjustHighLats = 1;    // adjusting method for higher latitudes
 
-    var $timeFormat   = 0;        // time format
+    var $timeFormat   = 1;        // time format
 
     var $lat;        // latitude
     var $lng;        // longitude
@@ -184,8 +184,10 @@ class PrayTime
 
 
     // return prayer times for a given date
-    function getDatePrayerTimes($year, $month, $day, $latitude, $longitude, $timeZone)
+    function getDatePrayerTimes($year, $month, $day, $latitude, $longitude, $timeZone, $CmethodID, $methodID)
     {
+        $this->calcMethod = $CmethodID;
+
         $this->lat = $latitude;
         $this->lng = $longitude;
         $this->timeZone = $timeZone;

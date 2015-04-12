@@ -1,6 +1,6 @@
-@include('prayers.includes.PrayTime')
-
 <?php
+include 'includes/PrayTime.php';
+
 
 	if(isset($_GET['count'])){
 		$count = $_GET['count']*3;
@@ -41,11 +41,11 @@ for ($n = 0; $n < 3; $n++) {
     $prayer_names = array("Fajr", "Sunrise", "Zuhar","Asr", "Sunsit", "Maghrib", "Ishaa");
     
     $prayTime = new PrayTime();
-    $prayTime->setCalcMethod(Auth::user()->calculation_method);
-    $prayTime->setAsrMethod(Auth::user()->juristic_method);
+  
     static $latitude;
     static $longitude;
     static $tzone;
+
 
     if(isset($_GET['latitude'])){
    	$latitude = $_GET['latitude'];
@@ -53,11 +53,14 @@ for ($n = 0; $n < 3; $n++) {
     $tzone = $_GET['tzone'];
 	}
 
-    $times = $prayTime->getDatePrayerTimes ($year, $month, $day, $latitude, $longitude, $tzone);
+   $times = $prayTime->getDatePrayerTimes ($year, $month, $day, $latitude, $longitude, $tzone,
+   						Auth::user()->calculation_method, Auth::user()->juristic_method);
     
     $i = 0;
+	
 	foreach ($prayer_names as $value) {
 		
+			
 		echo '<tr>';
 		
 			echo '<td>';
@@ -70,13 +73,11 @@ for ($n = 0; $n < 3; $n++) {
 		$i++;
 		echo '</tr>';
 	}
+	
 	echo '</table>';
 	echo '</div>';
 	echo '</div>';
 	echo '</div>';
-
-	
-
 
 	}
 	

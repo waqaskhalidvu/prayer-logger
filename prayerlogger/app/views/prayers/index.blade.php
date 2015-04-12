@@ -1,5 +1,5 @@
 @extends('layouts.main')
-@include('prayers.includes.PrayTime')
+
 
 @section('logo')
 <a class="navbar-brand" href="homes" style="margin-left:-20px">{{ HTML::image('images/logo.png') }}</a>
@@ -85,7 +85,7 @@
 
 @include('prayers.includes.prayers-script')
 <script src="js/jquery_new.js" type="text/javascript"></script>
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<!-- <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script> -->
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCeLzjWfDaqBze8j7qKJL17XH4ZsMjsTx0&sensor=true">
 </script>

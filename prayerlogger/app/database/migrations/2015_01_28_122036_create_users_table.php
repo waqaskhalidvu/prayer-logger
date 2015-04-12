@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration {
 			$table->string('password');
 			$table->boolean('active');
 			$table->string('code');
-			$table->string('calculation_method');
-			$table->string('juristic_method');
+			$table->integer('calculation_method')->default(3);
+			$table->integer('juristic_method')->default(0);
 			$table->string('remember_token');
 			$table->timestamps();
 		});
