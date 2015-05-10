@@ -25,7 +25,7 @@
                         <input type="password" id="login_password" required name="password" onblur="password_validate(this.value, this)" minlength="4" maxlength="8" placeholder="enter your Password...">
                         <div id="password_error" style="text-align: right;"></div>
                       <button type="submit">Sign in</button>  
-            <h1><a href="users/create">Not a member yet <span class="green">.</span></a></h1>
+            <h2><a href="users/create">Not a member yet <span class="green">.</span></a></h2>
           
           {{ Form::token() }}
 

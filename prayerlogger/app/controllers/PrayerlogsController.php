@@ -90,7 +90,6 @@ class PrayerlogsController extends \BaseController {
 				}
 			}
 
-    	
     	/*--------------up comming prayer find-----------------*/
 		
 
@@ -124,7 +123,6 @@ class PrayerlogsController extends \BaseController {
 		    	break;
  			}
 
- 			
 
 
 			$diff= date_diff($last_prayer_date, $new_prayer_date);
@@ -136,10 +134,9 @@ class PrayerlogsController extends \BaseController {
 			for($i= 0; $i <= $diff; $i++){
 
 				for($j= 0; $j < 5; $j++){
-					
 					if($prayer_name[$j] != $last_prayer_name || $count != $diff ){
-						if($prayer_name[$j] != $new_prayer_name || $count != 0){
 
+						if($prayer_name[$j] != $new_prayer_name || $count != 0){
 							Prayerlog::firstOrCreate(array('prayer_name' => $prayer_name[$j], 'prayer_date' => $last_prayer_date, 'logged' => 'unlogged', 'user_id' => $id));
 						}
 						else{
@@ -153,7 +150,6 @@ class PrayerlogsController extends \BaseController {
 				$last_prayer_date->add(new DateInterval('P1D'));
 			}
   				
-
 
 
 		return Redirect::route('prayerlogs.index');

@@ -45,7 +45,7 @@
         <div class="register-container container">
             <div class="row">
                 <div class="iphone span5">
-                    <img src="assets/img/iphone.png" alt="">
+
                 </div>
                 <div class="register span6">
      

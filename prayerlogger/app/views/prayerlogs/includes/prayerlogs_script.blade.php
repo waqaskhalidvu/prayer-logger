@@ -25,8 +25,13 @@
             var timezone = d.getTimezoneOffset()/-60;
             var hour = d.getHours();
             var minutes = d.getMinutes();
+            var day =d.getDate();
 
-
+            var month = d.getMonth()+1;
+            var year = d.getFullYear();
+            document.getElementById("day").value = day;
+            document.getElementById("month").value = month;
+            document.getElementById("year").value = year;
             document.getElementById("lati").value = lati;
             document.getElementById("longi").value = longi;
             document.getElementById("zone").value = timezone;

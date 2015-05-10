@@ -35,7 +35,7 @@
                         <div id="cpassword_error" style="text-align: right;"></div>
                        
                       <button type="submit">Register</button>  
-            <h1><a href="/users">Already a member ?<span class="green">.</span></a></h1>
+            <h3><a href="/users">Already a member ?<span class="green">.</span></a></h3>
           
          {{ Form::token() }}
 
