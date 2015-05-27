@@ -49,9 +49,16 @@
 						<div class="row">
 							<div class="form-group">
 								<label>Select Prayer As</label>
+
 								<select name="offered" id="offered_unoffered" class="form-control" onChange= "unoffered()">
-									<option>Offer</option>
-									<option>Unoffer</option>
+                                  @if($prayerlog->offered == "Unoffer")
+                                    <option>Offer</option>
+                                    <option selected>Unoffer</option>
+                                  @else
+                                    <option>Offer</option>
+                                    <option>Unoffer</option>
+                                  @endif
+
 								</select>
 							</div>	
 						</div>

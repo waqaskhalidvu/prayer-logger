@@ -11,12 +11,14 @@ class PrayerlogsController extends \BaseController {
 	public function index()
 	{		
 
-    	$id = Auth::id();    	
-	  	
-    	
-		$prayerlogs =  Prayerlog::where('user_id', $id)->paginate(10);
+    	$id = Auth::id();
 
-		
+        if(!Input::get('page')) {
+            $prayerlogs = Prayerlog::where('user_id', $id)->paginate(10);
+            Paginator::setCurrentPage($prayerlogs->getLastPage());
+        }
+        $prayerlogs = Prayerlog::where('user_id', $id)->paginate(10);
+
 		return View::make('prayerlogs.index', compact('prayerlogs'));
 	}
 
@@ -178,6 +180,7 @@ class PrayerlogsController extends \BaseController {
 	 */
 	public function edit($id)
 	{
+        Session::put('pre_url', URL::previous());
 		$prayerlog = Prayerlog::find($id);
 
 		return View::make('prayerlogs.edit', compact('prayerlog'));
@@ -237,12 +240,7 @@ class PrayerlogsController extends \BaseController {
 				$prayerlog->logged = 'logged';
 				}
 				
-			 
-		
-		
 
-		
-		
 		
 		
 		
@@ -253,10 +251,18 @@ class PrayerlogsController extends \BaseController {
 			return Redirect::back()->withErrors($validator)->withInput();
 		}
 
-		
-		return $log;
 		$prayerlog->update($log);
-		return Redirect::route('prayerlogs.index');
+
+        if ( Session::has('pre_url') )
+        {
+            $url = Session::get('pre_url');
+            Session::forget('pre_url');
+            return Redirect::to($url);
+        }
+        else
+            return  'hello'; //Redirect::route('prayerlogs.index');
+
+
 	}
 
 	/**

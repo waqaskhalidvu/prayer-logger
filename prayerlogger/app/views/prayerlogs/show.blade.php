@@ -76,7 +76,7 @@
 		<tr>
 		  <td><h4><b>Mosque Name</b></h4></td>
 		  <td>
-		  	@if($prayerlog->mosque_name)
+		  	@if($mosque->mosque_name)
 		  		{{$mosque->mosque_name}}
 		  	@endif
 		  </td>
@@ -85,7 +85,7 @@
 		<tr>
 		  <td><h4><b>Country</b></h4></td>
 		  <td>
-		  	@if($prayerlog->country)
+		  	@if($mosque->country)
 		  		{{$mosque->country}}
 		  	@endif
 		  </td>
@@ -94,7 +94,7 @@
 		<tr>
 		  <td><h4><b>State</b></h4></td>
 		  <td>
-		  	@if($prayerlog->state)
+		  	@if($mosque->state)
 		  		{{$mosque->state}}
 		  	@endif
 		  </td>
@@ -103,7 +103,7 @@
 		<tr>
 		  <td><h4><b>City</b></h4></td>
 		  <td>
-		  	@if($prayerlog->city)
+		  	@if($mosque->city)
 		  		{{$mosque->city}}
 		  	@endif
 		  </td>
@@ -112,7 +112,7 @@
 		<tr>
 		  <td><h4><b>Street</b></h4></td>
 		  <td>
-		  	@if($prayerlog->street)
+		  	@if($mosque->street)
 		  		{{$mosque->street}}
 		  	@endif
 		  </td>
@@ -120,7 +120,7 @@
 
 		<tr>
 			<td colspan="2" margin-bottom: 10%;> 
-			<a href="{{ URL::route('prayerlogs.index') }}" class="btn btn-success col-lg-2" style="margin-left:80%">Ok</a>
+			<a href="{{ URL::previous() }}" class="btn btn-success col-lg-2" style="margin-left:80%">Ok</a>
 		</td>
 		</tr>
 
