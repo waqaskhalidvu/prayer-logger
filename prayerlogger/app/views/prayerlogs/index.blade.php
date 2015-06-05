@@ -103,19 +103,25 @@
                                                                 <td> {{$prayerlog->prayer_name}} </td>
                                                                 
                                                                 @if($prayerlog->logged == 'logged')
+
+                                                                    @if($prayerlog->offered == 'Unoffer')
+                                                                        <td> {{$prayerlog->offered}}</td>
+                                                                        <td>
+                                                                            {{ link_to_route('prayerlogs.edit', 'Edit', [$prayerlog->id], ['class="btn btn-sm btn-success"'])}}
+
+                                                                        </td></tr>
+                                                                    @else
                                                                     
                                                                         <td> {{$prayerlog->offered}}</td>
                                                                         <td> 
                                                                             {{ link_to_route('prayerlogs.show', 'View', [$prayerlog->id], ['class="btn btn-sm btn-success"'])}}
-                                                                            {{ link_to_route('prayerlogs.edit', 'Edit', [$prayerlog->id], ['class="btn btn-sm btn-danger"'])}}
+                                                                            {{ link_to_route('prayerlogs.edit', 'Edit', [$prayerlog->id], ['class="btn btn-sm btn-success"'])}}
                                                                          
                                                                         </td></tr>
-                                                                
-                                                                   
-                                                                  
 
-                                                                
-                                                           
+                                                                    @endif
+
+
                                                                 @else
 
                                                                     <th> {{$prayerlog->logged}} </th>

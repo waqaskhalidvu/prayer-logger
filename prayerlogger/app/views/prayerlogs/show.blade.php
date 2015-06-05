@@ -29,19 +29,18 @@
 
 @section('content')
 
-@include('prayerlogs.includes.countries')
 		
-		{{ Form::model($prayerlog, ['route' => ['prayerlogs.update', $prayerlog->id], 'method' => 'put'])}}
+
 	<header class="main-box-header clearfix">
 		
 						
 		
-			<table>
-				<thead>
-		<tr>
-			<th colspan="2" style="text-align:center; font-size:25px">Prayer Information</th>
-			
-		</tr>
+		<table>
+		<thead>
+            <tr>
+                <th colspan="2" style="text-align:center; font-size:25px">Prayer Information</th>
+
+            </tr>
 		</thead>
 				
 		
@@ -49,14 +48,15 @@
 		
 		<tbody>
 		<tr>
-			<td width="40%"><h4><b>Prayer Offered As<b></h4></td>
+			<td width="40%"><h4><b>Prayer Offered As</b></h4></td>
 			<td> {{$prayerlog->prayer_type}}</td>
 		</tr>
-		
+		@if($prayerlog->prayer_type == "Qaza")
 		<tr>
 		  <td><h4><b>Offered Date</b></h4></td>
 		  <td> {{$prayerlog->offered_date}} </td>
 		</tr>
+		@endif
 		
 		<tr>
 		  <td><h4><b>Offered Time</b></h4></td>
@@ -71,12 +71,13 @@
 		  	Home
 		  	@endif
 		   </td>
-		  
+
 		</tr>
+		@foreach($prayerlog->mosques()->get() as $mosque)
 		<tr>
 		  <td><h4><b>Mosque Name</b></h4></td>
 		  <td>
-		  	@if($mosque->mosque_name)
+            @if($mosque->mosque_name)
 		  		{{$mosque->mosque_name}}
 		  	@endif
 		  </td>
@@ -118,9 +119,11 @@
 		  </td>
 		</tr>
 
+        @endforeach
+
 		<tr>
-			<td colspan="2" margin-bottom: 10%;> 
-			<a href="{{ URL::previous() }}" class="btn btn-success col-lg-2" style="margin-left:80%">Ok</a>
+			<td colspan="2" style = "margin-bottom: 10%;">
+			<a href="{{ URL::previous() }}" class="btn btn-success col-lg-2" style="margin-left:80%">Back</a>
 		</td>
 		</tr>
 

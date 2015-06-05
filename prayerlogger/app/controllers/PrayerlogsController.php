@@ -139,7 +139,7 @@ class PrayerlogsController extends \BaseController {
 					if($prayer_name[$j] != $last_prayer_name || $count != $diff ){
 
 						if($prayer_name[$j] != $new_prayer_name || $count != 0){
-							Prayerlog::firstOrCreate(array('prayer_name' => $prayer_name[$j], 'prayer_date' => $last_prayer_date, 'logged' => 'unlogged', 'user_id' => $id));
+							Prayerlog::firstOrCreate(array('prayer_name' => $prayer_name[$j], 'prayer_date' => $last_prayer_date, 'user_id' => $id));
 						}
 						else{
 							break;
@@ -166,10 +166,8 @@ class PrayerlogsController extends \BaseController {
 	public function show($id)
 	{
 		$prayerlog = Prayerlog::findOrFail($id);
-		$mosque_id = $prayerlog->mosque_id;
-		$mosque = Mosque::find($mosque_id);
 
-		return View::make('prayerlogs.show', compact('prayerlog', 'mosque'));
+		return View::make('prayerlogs.show', compact('prayerlog'));
 	}
 
 	/**
@@ -198,6 +196,7 @@ class PrayerlogsController extends \BaseController {
 		$prayerlog = Prayerlog::findOrFail($id);
 
 		$data = Input::all();
+        $log;
 		$log_mosque;
 
 
@@ -208,16 +207,15 @@ class PrayerlogsController extends \BaseController {
 			$logged = "logged";
 			$offered = $data["offered"];
 			$prayer_type = $data["prayer_type"];
-			if($prayer_type == 'Qaza'){
-				$offered_date =  date('Y-m-d', strtotime(str_replace('-', '/', $data["offered_date"])));
-			$log = ['offered_date'=> $offered_date];
-			}
-			
 			$offered_time = date('H:i:s', strtotime(str_replace('-', '/', $data["offered_time"])));
 			$offer_at = $data["offer_at"];
-		
+
 			$log = ['offered'=> $offered, 'prayer_type'=> $prayer_type, 'offered_time'=> $offered_time];
-			$prayerlog->logged = 'logged';
+
+            if($prayer_type == 'Qaza'){
+                $prayerlog->offered_date = date(str_replace('/', '-', $data["offered_date"]));
+            }
+            $prayerlog->logged = 'logged';
 
 
 			if($offer_at == "Mosque"){
@@ -246,10 +244,9 @@ class PrayerlogsController extends \BaseController {
 		
 		$validator = Validator::make($data = Input::all(), Prayerlog::$rules);
 
-		if ($validator->fails())
-		{
-			return Redirect::back()->withErrors($validator)->withInput();
-		}
+		if ($validator->fails()) {
+            return Redirect::back()->withErrors($validator)->withInput();
+        }
 
 		$prayerlog->update($log);
 
@@ -260,7 +257,7 @@ class PrayerlogsController extends \BaseController {
             return Redirect::to($url);
         }
         else
-            return  'hello'; //Redirect::route('prayerlogs.index');
+            return Redirect::route('prayerlogs.index');
 
 
 	}

@@ -60,10 +60,10 @@
 
 </div>
 <! --    ------------------in slider body-------------------------->
-<a id="prev" class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
+<a id="prev" onclick = "pre_clicks++" class="left carousel-control hidden-xs" href="#carousel-slider" data-slide="prev">
 <i class="fa fa-angle-left"></i>
 </a>
-<a id="next" class="right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
+<a id="next" onclick = "next_clicks++" class="right carousel-control hidden-xs"href="#carousel-slider" data-slide="next">
 <i class="fa fa-angle-right"></i>
 
 </a>

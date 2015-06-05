@@ -83,7 +83,7 @@
 							<div class="form-group col-md-12">
 								<label for="datepickerDateComponent">offer date</label>
 								<div class="input-group" data-date-format="dd-mm-yyyy">
-									<input name="offered_date" type="date" class="form-control" id="datepickerDateComponent" readonly disabled>
+									<input name="offered_date" type="text" class="form-control" id="datepickerDateComponent" data-date-format="yyyy/mm/dd" readonly disabled>
 									<span class="input-group-addon"><i class="fa fa-th"></i></span>
 								</div>
 								

@@ -15,7 +15,7 @@ class CreatePrayerlogsTable extends Migration {
 		Schema::create('prayerlogs', function(Blueprint $table)
 		{
 			$table->increments('id');
-			$table->string('logged');
+			$table->string('logged')->default("unlogged");
 			$table->string('offered');
 			$table->string('prayer_name');
 			$table->date('prayer_date');
