@@ -1,33 +1,20 @@
 <!-- <script src="js/jquery_new.js" type="text/javascript"></script> -->
 
 <script type="text/javascript">
-  
+
+  var next_clicks = 0;
   
   $('#next').click(function(){
 
-        if(typeof(Storage) !== "undefined") {
-        if (sessionStorage.clickcount) {
-            sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
-        } else {
-            sessionStorage.clickcount = 1;
-          }
-        }
-
-        /*g=document.createElement('div');
-        g.setAttribute("id", "Div1" , "class" , "item");
-        $('#div').after('g');*/
-        
-     
-        var counter = sessionStorage.clickcount;
         
 
-        var preid = counter-1;
+        var preid = next_clicks-1;
         prediv= '#div'+preid;
-       
-        $(prediv).after('<div id="div'+counter+'" class="item">  </div>');
+
+        $(prediv).after('<div id="div'+next_clicks+'" class="item">  </div>');
         
-         var id='#div'+counter+'';
-         var data = {count: sessionStorage.clickcount, divid : id};
+         var id='#div'+next_clicks+'';
+         var data = {next_count: next_clicks, divid : id};
       
                 var url = "prayers/show";
                ajaxHandle(url, data);
@@ -86,14 +73,14 @@
         
         var url = "prayers/show";
 
-        ajaxHandle(url, data);
+        ajaxHandler(url, data);
 
         
 
 
       }
 
-      function ajaxHandle(url, data) {
+      function ajaxHandler(url, data) {
                 jQuery.ajax({
                     type: 'get',
                     url: url,
@@ -112,7 +99,27 @@
       
   });
 
+  var pre_clicks = 0;
 
+   $('#prev').click(function(){
+
+
+         var preid = pre_clicks-1;
+         prediv= '#div-'+preid;
+        if(pre_clicks == 1){
+           prediv= '#div'+preid;
+           }
+
+
+         $(prediv).before('<div id="div-'+pre_clicks+'" class="item">  </div>');
+
+          var id='#div-'+pre_clicks+'';
+          var data = {pre_count: pre_clicks, divid : id};
+
+                 var url = "prayers/show";
+                ajaxHandle(url, data);
+
+    });
 
 
 </script>

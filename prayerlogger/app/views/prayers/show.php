@@ -2,9 +2,12 @@
 include 'includes/PrayTime.php';
 
 
-	if(isset($_GET['count'])){
-		$count = $_GET['count']*3;
+	if(isset($_GET['next_count'])){
+		$count = $_GET['next_count']* 3;
 	}
+    else if(isset($_GET['pre_count'])){
+        $count = $_GET['pre_count']* -3;
+    }
 	else{
 		$count = 0;
 	}
