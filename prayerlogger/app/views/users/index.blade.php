@@ -19,10 +19,10 @@
                         
 
                         <label for="firstname">Email</label>
-                        <input type="email" id="username" name="email" required onblur="validate(this.value, this)"  maxlength="30" placeholder="enter your Email address...">
+                        <input type="email" id="username" name="email" required onfocus='if(this.placeholder="Enter Email Address"){this.placeholder="";}' onblur="validate(this.value, this)"  maxlength="30" placeholder="Enter Email Address">
                         <div id="error" style="text-align: right;"></div>
                         <label for="lastname">Password</label>
-                        <input type="password" id="login_password" required name="password" onblur="password_validate(this.value, this)" minlength="4" maxlength="8" placeholder="enter your Password...">
+                        <input type="password" id="login_password" required name="password" onfocus='if(this.placeholder="Enter Password"){this.placeholder="";}' onblur="password_validate(this.value, this)" minlength="4" maxlength="8" placeholder="Enter Password">
                         <div id="password_error" style="text-align: right;"></div>
                       <button type="submit">Sign in</button>  
             <h2><a href="users/create">Not a member yet <span class="green">.</span></a></h2>
@@ -35,6 +35,7 @@
 <!-- java script code for email format validition -->
         <script>
     function validate(val, id){
+      document.getElementById("username").placeholder = "Enter Email Address";
       
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (val.match(mailformat))
@@ -60,7 +61,7 @@
    <!-- java script code for password field validition -->
         <script>
     function password_validate(val, id){
-      
+      document.getElementById("login_password").placeholder = "Enter Password";
       var mailformat = /^[a-z0-9]+$/i;
       if (val.match(mailformat))
         {

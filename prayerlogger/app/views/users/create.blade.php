@@ -19,19 +19,19 @@
               @endif
 
                         <label for="firstname">First Name</label>
-                        <input type="text" required id="firstname" name="fname" onblur="validate_fname(this.value, this)" minlength="5" maxlength="15" placeholder="enter your first name...">
+                        <input type="text" required id="firstname" name="fname" onfocus='if(this.placeholder="Enter First Name"){this.placeholder="";}'onblur="validate_fname(this.value, this)" minlength="5" maxlength="15" placeholder="Enter First Name">
                         <div id="error" style="text-align: right;"></div>
                         <label for="lastname">Last Name</label>
-                        <input type="text" required id="lastname" name="lname" onblur="validate_lname(this.value, this)" minlength="5" maxlength="15" placeholder="enter your last name...">
+                        <input type="text" required id="lastname" name="lname" onfocus='if(this.placeholder="Enter Last Name"){this.placeholder="";}' onblur="validate_lname(this.value, this)" minlength="5" maxlength="15" placeholder="Enter Last Name">
                         <div id="lname_error" style="text-align: right;"></div>
                         <label for="email">Email</label>
-                        <input type="email" required id="email" name="email" onblur="email_validate(this.value, this)" maxlength="30"placeholder="enter your email...">
+                        <input type="email" required id="email" name="email" onblur="email_validate(this.value, this)" maxlength="30" onfocus='if(this.placeholder="Enter Valid Email Address"){this.placeholder="";}' placeholder="Enter Valid Email Address">
                         <div id="email_error" style="text-align: right;"></div>
                         <label for="password">Password</label>
-                        <input type="password" required id="password" name="password" onblur="password_validate(this.value, this)" minlength="4" maxlength="8" placeholder="choose a password...">
+                        <input type="password" required id="password" name="password" onblur="password_validate(this.value, this)" minlength="4" maxlength="8" onfocus='if(this.placeholder="Enter Password"){this.placeholder="";}' placeholder="Enter Password">
                         <div id="password_error" style="text-align: right;"></div>
                         <label for="password">Confirm Password</label>
-                        <input type="password" required id="confirm_password" name="password_confirm" onblur="cpassword_validate(this.value, this)" minlength="4" maxlength="8" placeholder="re-enter password...">
+                        <input type="password" required id="confirm_password" name="password_confirm" onblur="cpassword_validate(this.value, this)" minlength="4" maxlength="8" onfocus='if(this.placeholder="Re Enter Password"){this.placeholder="";}' placeholder="Re Enter Password">
                         <div id="cpassword_error" style="text-align: right;"></div>
                        
                       <button type="submit">Register</button>  
@@ -42,7 +42,7 @@
          <!-- java script code for first name validition -->
         <script>
     function validate_fname(val, id){
-      
+      document.getElementById("firstname").placeholder = "Enter First Name";
       var nameformat = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
       if (val.match(nameformat))
         {
@@ -67,7 +67,7 @@
    <!-- java script code for last name validition -->
         <script>
     function validate_lname(val, id){
-      
+      document.getElementById("lastname").placeholder = "Enter Last Name";
       var nameformat = /^([a-zA-Z]+\s)*[a-zA-Z]+$/;
       if (val.match(nameformat))
         {
@@ -92,7 +92,7 @@
   <!-- java script code for email format validition -->
         <script>
     function email_validate(val, id){
-      
+      document.getElementById("email").placeholder = "Enter Valid Email Address";
       var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
       if (val.match(mailformat))
         {
@@ -117,7 +117,7 @@
   <!-- java script code for password field validition -->
         <script>
     function password_validate(val, id){
-      
+      document.getElementById("password").placeholder = "Enter Password";
       var mailformat = /^[a-z0-9]+$/i;
       if (val.match(mailformat))
         {
@@ -143,7 +143,7 @@
       <!-- java script code for password field validition -->
         <script>
     function cpassword_validate(val, id){
-      
+      document.getElementById("confirm_password").placeholder = "Re Enter Password";
       var mailformat = /^[a-z0-9]+$/i;
       if (val.match(mailformat))
         {
