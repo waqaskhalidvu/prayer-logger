@@ -20,6 +20,7 @@
     {{HTML::style('css/compiled/theme_styles.css')}}
     {{HTML::style('css/libs/dataTables.fixedHeader.css')}}
     {{HTML::style('css/libs/dataTables.tableTools.css')}}
+    {{HTML::style('css/searchField.css')}}
     
     <!-- Favicon -->
     <link type="image/x-icon" href="favicon.png" rel="shortcut icon"/>
@@ -51,7 +52,20 @@
 
     
         <header class="navbar" id="header-navbar" >
-
+            <div class="container">
+   
+    <div class="row">
+        <div class="col-md-4 col-md-offset-8">
+            <form action="" class="search-form">
+                <div class="form-group has-feedback">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search">
+                    <span class="glyphicon glyphicon-search form-control-feedback"></span>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
         </header>
 
         <div id="page-wrapper" class="container" >
