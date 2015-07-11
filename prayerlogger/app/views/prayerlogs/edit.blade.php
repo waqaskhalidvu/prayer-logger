@@ -31,7 +31,6 @@
 
 @include('prayerlogs.includes.countries')
 @include('prayerlogs.selectmosque')
-@include('prayerlogs.userLocation')
 
 
 		{{ Form::model($prayerlog, ['route' => ['prayerlogs.update', $prayerlog->id], 'method' => 'put'])}}

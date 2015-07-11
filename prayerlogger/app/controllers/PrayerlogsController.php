@@ -8,18 +8,38 @@ class PrayerlogsController extends \BaseController {
 	 *
 	 * @return Response
 	 */
+
 	public function index()
-	{		
-
-    	$id = Auth::id();
-
+	{	
+		$id = Auth::id();
+    	$date_first_record = Prayerlog::where('user_id', $id)->select('prayer_date')->first();
+    	
+        $diff = date_diff(new DateTime(date('Y-m-d')), new DateTime($date_first_record['prayer_date']));
+        $start= (int) $diff->format("%R%a");
+     
+        
         if(!Input::get('page')) {
             $prayerlogs = Prayerlog::where('user_id', $id)->paginate(10);
             Paginator::setCurrentPage($prayerlogs->getLastPage());
         }
-        $prayerlogs = Prayerlog::where('user_id', $id)->paginate(10);
 
-		return View::make('prayerlogs.index', compact('prayerlogs'));
+        if(Input::get('search')){
+			$search = Input::get('search');
+			$diff = date_diff(new DateTime($date_first_record['prayer_date']), new DateTime($search));
+        	$page= (int) $diff->format("%R%a")+1;
+        	if($page%2==0){
+        		$page= $page/2;
+        	}
+        	else{
+        		$page=  $page/2+1;
+        	}
+			$prayerlogs = Prayerlog::where('user_id', $id)->paginate(10);
+            Paginator::setCurrentPage((int)$page);
+		}
+
+        $prayerlogs = Prayerlog::where('user_id', $id)->paginate(10);
+        //return $prayerlogs->getLastPage();
+		return View::make('prayerlogs.index', compact('prayerlogs', 'start'));
 	}
 
 	/**

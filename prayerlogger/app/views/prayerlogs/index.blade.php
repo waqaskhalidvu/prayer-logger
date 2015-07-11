@@ -20,7 +20,9 @@
     {{HTML::style('css/compiled/theme_styles.css')}}
     {{HTML::style('css/libs/dataTables.fixedHeader.css')}}
     {{HTML::style('css/libs/dataTables.tableTools.css')}}
+    {{HTML::style('bootstrap-datepicker/css/datepicker3.css')}}
     
+
     <!-- Favicon -->
     <link type="image/x-icon" href="favicon.png" rel="shortcut icon"/>
 
@@ -72,11 +74,31 @@
                             </div>
                             
                             <div class="row">
+                                
+
                                 <div class="col-lg-12">
                                     <div class="main-box clearfix">
                                         
                                        <div class="main-box-body clearfix">
-                                       
+
+                                            <!-- date picker -->
+                                            </br>
+                                         
+                                            {{ Form::open(array('route' => 'prayerlogs.index', 'method' =>'get') ) }}
+                                            <div class="col-md-offset-8 col-md-4">
+                                                <div class="input-group input-medium date date-picker" data-date-format="yyyy-mm-dd" data-date-start-date='{{$start}}d' data-date-end-date="+0d">
+                                                    <input name="search" type="text" class="form-control" readonly onchange="document.forms[0].submit();">
+                                                    <span class="input-group-btn">
+                                                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                                                    </span>
+                                                    
+                                                </div>
+                                                <!-- /input-group -->
+                                                <span class="help-block">
+                                                Select date for Search </span>
+                                            </div>
+                                            {{ Form::close() }}
+
                                             <div class="table-responsive">
                                                
                                                
@@ -144,7 +166,7 @@
                                                         
                                                     </tbody>
                                                 </table>
-                                                {{ $prayerlogs->links();}}
+                                                <div class="col-md-offset-2">{{ $prayerlogs->links();}}</div>
                                             </div>
                                         </div>
                                     </div>
@@ -181,12 +203,26 @@
     <script src="js/dataTables.fixedHeader.js"></script>
     <script src="js/dataTables.tableTools.js"></script>
     <script src="js/jquery.dataTables.bootstrap.js"></script>
+
+    <script src="../metronic.js" type="text/javascript"></script>
+    <script type="text/javascript" src="../bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+    <script src="../components-pickers.js"></script>
     
+
     <!-- theme scripts -->
     <script src="js/scripts.js"></script>
     <script src="js/pace.min.js"></script>
     
     <!-- this page specific inline scripts -->
+<script>
+        jQuery(document).ready(function() {       
+           // initiate layout and plugins
+           Metronic.init(); // init metronic core components
+
+           ComponentsPickers.init();
+        });
+        </script>
+
     <script>
     $(document).ready(function() {
         var table = $('#table-example').dataTable({

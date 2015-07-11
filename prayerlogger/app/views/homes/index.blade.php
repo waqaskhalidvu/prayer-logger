@@ -6,7 +6,7 @@
 @stop
 
 @section('logo')
-<a class="navbar-brand" href="homes" style="margin-left:-20px">{{ HTML::image('images/logo.png') }}</a>
+<a class="navbar-brand" href="homes" style="margin-left:0px">{{ HTML::image('images/logo.png') }}</a>
 @stop
 
 @section('tablinks')
@@ -85,7 +85,7 @@
 
 @stop
 @section('jslinks')
-{{ HTML::script('http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js') }}
+{{ HTML::script('assets/js/jquery-1.8.2.min.js') }}
 {{ HTML::script('..//js/highcharts.js') }}
 
 <script>

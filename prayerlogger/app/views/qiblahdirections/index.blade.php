@@ -94,6 +94,8 @@ function initialize() {
     strokeColor: '#000'
   };
 
+
+
   // Create the polyline and add the symbol to it via the 'icons' property.
   line = new google.maps.Polyline({
     path: lineCoordinates,

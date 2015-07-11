@@ -20,7 +20,7 @@ for ($n = 0; $n < 3; $n++) {
 
 	echo '<div class="col-md-4 col-sm-6 wow fadeInDown" data-wow-duration="1000ms" data-wow-delay="600ms">';
  	echo '<div class="feature-wrap">';
-	echo '<div class="prayer-times1 shadow-box"><h3>Prayer Times</h3>';
+	echo '<div class="prayer-times2 shadow-box"><h3>Prayer Times</h3>';
 	echo '<table>';
 	
 	
