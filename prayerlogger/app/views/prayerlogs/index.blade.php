@@ -20,7 +20,10 @@
     {{HTML::style('css/compiled/theme_styles.css')}}
     {{HTML::style('css/libs/dataTables.fixedHeader.css')}}
     {{HTML::style('css/libs/dataTables.tableTools.css')}}
+
     {{HTML::style('bootstrap-datepicker/css/datepicker3.css')}}
+    {{HTML::style('css/searchField.css')}}
+
     
 
     <!-- Favicon -->
@@ -53,7 +56,25 @@
 
     
         <header class="navbar" id="header-navbar" >
-
+            <div class="container">
+   
+    <!-- <div class="row">
+        <div class="col-md-4 col-md-offset-8">
+            {{ Form::open(array('route' => 'prayerlogs.index', 'method' =>'get') ) }}
+                <div class="input-group input-medium date date-picker form-group has-feedback" data-date-format="yyyy-mm-dd" data-date-start-date='{{$start}}d' data-date-end-date="+0d">
+                    <label for="search" class="sr-only">Search</label>
+                    <input type="text" class="form-control" name="search" id="search" placeholder="search" readonly onchange="document.forms[0].submit();">
+                    <span class="input-group-btn">
+                    <button class="btn default" type="button"><i class="fa fa-calendar"></i></button>
+                    </span>
+                </div>
+                
+                    <span class="help-block">
+                    Select date for Search </span>
+            {{ Form::close() }}
+        </div>
+    </div> -->
+</div>
         </header>
 
         <div id="page-wrapper" class="container" >
@@ -214,14 +235,14 @@
     <script src="js/pace.min.js"></script>
     
     <!-- this page specific inline scripts -->
-<script>
+    <script>
         jQuery(document).ready(function() {       
            // initiate layout and plugins
            Metronic.init(); // init metronic core components
 
            ComponentsPickers.init();
         });
-        </script>
+    </script>
 
     <script>
     $(document).ready(function() {
