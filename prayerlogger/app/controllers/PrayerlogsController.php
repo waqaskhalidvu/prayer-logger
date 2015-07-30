@@ -171,7 +171,17 @@ class PrayerlogsController extends \BaseController {
 				$count--;
 				$last_prayer_date->add(new DateInterval('P1D'));
 			}
-  				
+			/*delete extra records*/
+			$c = 5 - $c;
+			for($i= 0; $i > $diff*5-$c; $i--){
+    			$d_rec = Prayerlog::where('user_id', $id)->select('id', 'logged')->orderBy('id', 'desc')->first();
+				if($d_rec['logged'] == 'logged'){
+					break;
+				}
+				else{
+					Prayerlog::destroy($d_rec['id']);
+				}
+			}
 
 
 		return Redirect::route('prayerlogs.index');
